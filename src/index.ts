@@ -1,7 +1,5 @@
 import "reflect-metadata";
 import express from "express";
-import swaggerUi from "swagger-ui-express";
-import swaggerFile from "./swagger/swagger.json";
 import cors from "cors";
 
 import "./database/connect";
@@ -17,7 +15,6 @@ app.use(
 );
 app.use(express.json());
 app.use(routes);
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(process.env.PORT || 3050, () =>
   console.log("🔥 Server is running at http://localhost:3050")
