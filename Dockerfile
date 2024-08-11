@@ -19,12 +19,8 @@ RUN mkdir -p dist
 # Compilar o projeto TypeScript
 RUN npm run build
 
-# Definir variáveis de ambiente para TypeORM apontando para a pasta dist
-ENV TYPEORM_ENTITIES=dist/app/entities/*.js
-ENV TYPEORM_MIGRATIONS=dist/database/migrations/*.js
-
 # Exponha a porta que sua aplicação vai utilizar
 EXPOSE 3050
 
 # Comando para rodar a aplicação
-CMD ["node", "dist/index.js"]
+CMD ["npm", "start"]
