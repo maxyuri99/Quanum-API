@@ -19,8 +19,11 @@ RUN mkdir -p dist
 # Compilar o projeto TypeScript
 RUN npm run build
 
+# Ajustar a configuração do TypeORM para apontar para as entidades compiladas
+RUN sed -i 's/src\\/dist\\/' ormconfig.js
+
 # Exponha a porta que sua aplicação vai utilizar
-EXPOSE 4666
+EXPOSE 3050
 
 # Comando para rodar a aplicação
 CMD ["node", "dist/index.js"]
