@@ -5,16 +5,16 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copie os arquivos package.json e yarn.lock para o diretório de trabalho
-COPY package.json yarn.lock ./
+COPY package.json ./
 
 # Instale as dependências do projeto
-RUN yarn install --production
+RUN npm  install --production
 
 # Copie o restante do código da aplicação para o diretório de trabalho
 COPY . .
 
 # Compilar o projeto TypeScript (se necessário)
-RUN yarn build
+RUN npm  build
 
 # Exponha a porta que sua aplicação vai utilizar
 EXPOSE 4666
